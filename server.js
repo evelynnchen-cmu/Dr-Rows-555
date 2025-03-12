@@ -25,13 +25,17 @@ async function getTestimonials() {
     });
 
     const rows = response.data.values;
-    if (!rows || rows.length < 2) return []; 
+    if (!rows || rows.length < 2) return [];
 
     return rows.slice(1).map(row => ({
-        name: row[1],
-        testimonial: row[2],
+        name: row[1], 
+        testimonial: row[2], 
     }));
 }
+
+app.get('/', (req, res) => {
+    res.send('Server is running! Use /testimonials to get data.');
+});
 
 app.get('/testimonials', async (req, res) => {
     try {
@@ -42,5 +46,5 @@ app.get('/testimonials', async (req, res) => {
     }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
