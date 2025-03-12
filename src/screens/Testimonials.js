@@ -6,7 +6,7 @@ export default function Testimonials() {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        fetch('http://localhost:4000/testimonials')  // Change to deployed URL in production
+        fetch('http://localhost:4000/testimonials')
             .then((res) => {
                 if (!res.ok) {
                     throw new Error('Failed to fetch testimonials');
