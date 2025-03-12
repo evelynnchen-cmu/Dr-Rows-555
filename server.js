@@ -48,3 +48,23 @@ app.get('/testimonials', async (req, res) => {
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// Below is the not working webhook code that updates the website when a testimonial is submitted
+
+// app.get('/webhook', (req, res) => {
+//     res.send('Webhook endpoint is active. Use POST to send data.');
+// });
+
+// app.post('/webhook', async (req, res) => {
+//     console.log('Received webhook:', req.body);
+
+//     try {
+//         const testimonials = await getTestimonials();
+        
+//         res.status(200).json({ message: 'Webhook received', updatedTestimonials: testimonials });
+//     } catch (error) {
+//         console.error('Error handling webhook:', error);
+//         res.status(500).json({ error: 'Failed to update testimonials' });
+//     }
+// });
+
